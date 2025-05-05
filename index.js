@@ -47,7 +47,7 @@ app.get('/books', async(req,res)=>{
     try{
         const books = await readallbook()
         if(books.length > 0){
-            res.status(200).json({message:"All Books Data :", books})
+            res.status(200).json(books)
         }else{
             res.status(404).json({message:"No Book Found"})
         }
@@ -71,7 +71,7 @@ app.get('/books/:title', async(req,res)=>{
     try{
         const book = await readbookbytitle(req.params.title)
         if(book){
-            res.status(200).json({message:"Book successfully fetched :",book})
+            res.status(200).json(book)
         }else{
             res.status(404).json({message:"No Book Found"})
         }
@@ -94,7 +94,7 @@ app.get('/books/author/:author', async(req,res)=>{
     try{
         const book = await readbookbyauthor(req.params.author)
         if(book){
-            res.status(200).json({message:"Book successfully fetched :",book})
+            res.status(200).json(book)
         }else{
             res.status(404).json({message:"No Book Found"})
         }
